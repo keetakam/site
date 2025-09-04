@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Web โดย keeta kamton</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; background: #f7f7f7; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: 40px auto; background: #fff; padding: 32px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.07);}
+        h1 { color: #2d7be0; }
+        .author { margin-top: 16px; font-size: 1.1em; color: #555; }
+        .desc { margin-top: 24px; font-size: 1.05em; }
+        .quote-btn {
+            margin-top: 32px;
+            padding: 10px 24px;
+            background: #2d7be0;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .quote-btn:hover {
+            background: #195ca8;
+        }
+        .quote {
+            margin-top: 24px;
+            font-style: italic;
+            color: #333;
+            min-height: 32px;
+            transition: opacity 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Web</h1>
+        <div class="author">
+            ผู้พัฒนา: keeta kamton
+        </div>
+        <div class="desc">
+            ยินดีต้อนรับสู่เว็บไซต์ด้าน AI ที่นำเสนอข้อมูลและเทคโนโลยีปัญญาประดิษฐ์<br>
+            สำรวจความรู้และตัวอย่างการใช้งาน AI ในชีวิตประจำวัน
+        </div>
+        <button class="quote-btn" onclick="showRandomQuote()">สุ่มคำคม AI</button>
+        <div class="quote" id="quote"></div>
+    </div>
+    <script>
+        const quotes = [
+            "AI ไม่ใช่เวทมนตร์ แต่คือเครื่องมือที่ทรงพลัง",
+            "อนาคตของ AI คือการร่วมมือกับมนุษย์",
+            "AI ช่วยให้เราตัดสินใจได้ดีขึ้น",
+            "จินตนาการคือขีดจำกัดเดียวของ AI",
+            "AI เปลี่ยนโลกด้วยข้อมูลและความคิดสร้างสรรค์"
+        ];
+        function showRandomQuote() {
+            const quote = quotes[Math.floor(Math.random() * quotes.length)];
+            const quoteDiv = document.getElementById('quote');
+            quoteDiv.style.opacity = 0;
+            setTimeout(() => {
+                quoteDiv.textContent = quote;
+                quoteDiv.style.opacity = 1;
+            }, 200);
+        }
+    </script>
+</body>
+</html>
