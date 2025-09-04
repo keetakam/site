@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Open Web Chatbot UI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { background: #f7f7f7; font-family: Arial, sans-serif; margin: 0; }
+        .chat-container {
+            max-width: 480px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 24px;
+        }
+        .chat-title {
+            font-size: 1.3em;
+            color: #2d7be0;
+            margin-bottom: 16px;
+        }
+        .chat-box {
+            height: 320px;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 12px;
+            background: #fafafa;
+            margin-bottom: 16px;
+        }
+        .msg {
+            margin: 8px 0;
+            padding: 8px 12px;
+            border-radius: 8px;
+            max-width: 80%;
+            word-break: break-word;
+        }
+        .user { background: #e3f0ff; align-self: flex-end; }
+        .bot { background: #f0f0f0; color: #333; }
+        .chat-input-area {
+            display: flex;
+            gap: 8px;
+        }
+        .chat-input {
+            flex: 1;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        .chat-send {
+            padding: 8px 20px;
+            background: #2d7be0;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.2s;
+        }
+        .chat-send:hover { background: #195ca8; }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-title">Open Web Chatbot UI</div>
+        <div class="chat-box" id="chatBox"></div>
+        <form class="chat-input-area" onsubmit="sendMessage(event)">
+            <input type="text" id="chatInput" class="chat-input" placeholder="พิมพ์ข้อความ..." autocomplete="off" required>
+            <button type="submit" class="chat-send">ส่ง</button>
+        </form>
+    </div>
+    <script>
+        function appendMessage(text, sender) {
+            const chatBox = document.getElementById('chatBox');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'msg ' + sender;
+            msgDiv.textContent = text;
+            chatBox.appendChild(msgDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function sendMessage(e) {
+            e.preventDefault();
+            const input = document.getElementById('chatInput');
+            const userText = input.value.trim();
+            if (!userText) return;
+            appendMessage(userText, 'user');
+            input.value = '';
+            setTimeout(() => {
+                // ตัวอย่างตอบกลับ (ยังไม่เชื่อมต่อ AI จริง)
+                appendMessage('ขอบคุณที่ส่งข้อความ! (นี่คือบอทตัวอย่าง)', 'bot');
+            }, 600);
+        }
+    </script>
+</body>
+</html>
