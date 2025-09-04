@@ -31,9 +31,47 @@
             min-height: 32px;
             transition: opacity 0.3s;
         }
+        .navbar {
+            width: 100%;
+            background: #2d7be0;
+            padding: 12px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            margin-bottom: 32px;
+        }
+        .navbar-content {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar-title {
+            color: #fff;
+            font-size: 1.15em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .navbar-link {
+            color: #fff;
+            text-decoration: none;
+            background: #195ca8;
+            padding: 6px 18px;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: background 0.2s;
+        }
+        .navbar-link:hover {
+            background: #14467c;
+        }
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <div class="navbar-content">
+            <span class="navbar-title">AI Web</span>
+            <a class="navbar-link" href="chatbot.html">Chatbot</a>
+        </div>
+    </div>
     <div class="container">
         <h1>AI Web</h1>
         <div class="author">
